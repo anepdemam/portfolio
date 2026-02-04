@@ -1,0 +1,73 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: $z-header;
+    padding: $spacing-md 0;
+    transition: padding $duration-normal cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow $duration-normal cubic-bezier(0.4, 0, 0.2, 1);
+    @include glass;
+    border-bottom: 1px solid var(--border-color);
+
+    &.scrolled {
+        padding: $spacing-sm 0;
+        box-shadow: $shadow-sm;
+    }
+
+    .container {
+        @include flex-between;
+    }
+
+    .logo {
+        font-family: $font-heading;
+        font-size: 1.5rem;
+        font-weight: 700;
+        @include text-gradient;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: $spacing-lg;
+
+        ul {
+            display: flex;
+            gap: $spacing-lg;
+
+            @include mobile {
+                display: none; // TODO: Mobile Menu
+            }
+        }
+
+        a {
+            font-weight: 500;
+            color: $text-muted;
+            transition: color $duration-fast;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -4px;
+                left: 0;
+                background: $gradient-main;
+                transition: width $duration-fast;
+            }
+
+            &:hover,
+            &.active {
+                color: $primary;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

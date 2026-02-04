@@ -1,0 +1,89 @@
+// Core Palette (Teal & Gray)
+$teal-deep: #2c6e7c;
+$teal-mid: #3d8b99;
+$teal-light: #62b0a5;
+$teal-pale: #b1d0ca;
+
+$gray-cool: #f0f4f5; // Light bg
+$gray-slate: #1a2c32; // "Not too dark" bg (Deep Slate Teal)
+$white: #ffffff;
+
+:root {
+    // Defaults (Light Mode)
+    --bg-main: #{$gray-cool};
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card-hover: rgba(255, 255, 255, 0.95);
+
+    --text-main: #1d4a53;
+    --text-muted: #5e7a7f;
+
+    --primary: #{$teal-deep};
+    --secondary: #{$teal-light};
+    --accent: #{$teal-pale};
+
+    --border-color: rgba(44, 110, 124, 0.1);
+    --shadow-sm: 0 4px 6px -1px rgba(44, 110, 124, 0.1);
+    --shadow-glow: 0 0 20px rgba(98, 176, 165, 0.3);
+}
+
+[data-theme='dark'] {
+    --bg-main: #{$gray-slate}; // Dark but not black
+    --bg-card: rgba(44, 110, 124, 0.15); // Glassy teal
+    --bg-card-hover: rgba(44, 110, 124, 0.25);
+
+    --text-main: #ffffff; // Pure white for better contrast
+    --text-muted: #c8cfd0; // Light gray-blue from palette
+
+    --primary: #62b0a5; // Lighter teal for contrast on dark
+    --secondary: #2c6e7c;
+    --accent: #3d8b99;
+
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 25px rgba(98, 176, 165, 0.2);
+}
+
+// SCSS Variables mapping to CSS Props
+$bg-dark: var(--bg-main);
+$bg-card: var(--bg-card);
+$bg-card-hover: var(--bg-card-hover);
+
+$primary: var(--primary);
+$secondary: var(--secondary);
+$accent: var(--accent);
+
+$text-main: var(--text-main);
+$text-muted: var(--text-muted);
+
+$gradient-main: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+$gradient-text: linear-gradient(to right, var(--primary), var(--secondary));
+
+// Typography
+$font-main: 'Inter', sans-serif;
+$font-heading: 'Outfit', sans-serif;
+
+// Spacing
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;
+
+// Borders
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 24px;
+$radius-full: 9999px;
+
+// Shadows (using updated CSS vars)
+$shadow-sm: var(--shadow-sm);
+$shadow-glow: var(--shadow-glow);
+$shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+// Transitions
+$ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+$duration-fast: 200ms;
+$duration-normal: 300ms;
+
+// Z-index
+$z-header: 100;
+$z-modal: 200;

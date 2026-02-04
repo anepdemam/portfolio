@@ -1,0 +1,45 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.contact {
+    padding: $spacing-xl 0;
+    text-align: center;
+
+    .container {
+        max-width: 600px;
+    }
+
+    h2 {
+        font-size: 3rem;
+        font-family: $font-heading;
+        margin-bottom: $spacing-md;
+        @include text-gradient;
+    }
+
+    p {
+        color: $text-muted;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: $spacing-xl;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: $spacing-md 3rem;
+        border: 2px solid $primary;
+        color: $primary;
+        background: transparent;
+        border-radius: $radius-md;
+        font-size: 1.1rem;
+        font-weight: 600;
+        box-shadow: $shadow-glow;
+        transition: transform $duration-normal cubic-bezier(0.4, 0, 0.2, 1),
+            background $duration-normal cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+
+        &:hover {
+            background: rgba($teal-deep, 0.1);
+            transform: translateY(-5px);
+        }
+    }
+}

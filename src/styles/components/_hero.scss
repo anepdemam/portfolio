@@ -1,0 +1,188 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.hero {
+    min-height: 100vh;
+    @include flex-center;
+    padding-top: $spacing-xl; // Account for fixed header
+    position: relative;
+    overflow: hidden;
+
+    // Background elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba($teal-light, 0.15) 0%, transparent 70%);
+        filter: blur(80px);
+        z-index: -1;
+        animation: float 10s ease-in-out infinite;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -10%;
+        left: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba($teal-deep, 0.1) 0%, transparent 70%);
+        filter: blur(80px);
+        z-index: -1;
+        animation: float 15s ease-in-out infinite reverse;
+    }
+
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-xl;
+        align-items: center;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    }
+
+    .content {
+        max-width: 600px;
+        text-align: left;
+
+        @include tablet {
+            max-width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+
+    .image-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            order: -1; // Show image above text on mobile
+        }
+
+        .image-placeholder {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            border-radius: $radius-lg;
+            overflow: hidden;
+            border: 4px solid var(--primary);
+            box-shadow: $shadow-glow;
+            background: var(--bg-card);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            // Placeholder styling if no image
+            &:empty::before {
+                content: 'Your Photo';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: var(--text-muted);
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        color: $primary;
+        margin-bottom: $spacing-sm;
+        font-weight: 500;
+        opacity: 0;
+        animation: fadeInUp $duration-normal ease forwards;
+        animation-delay: 200ms;
+    }
+
+    h1 {
+        font-family: $font-heading;
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: $spacing-md;
+        opacity: 0;
+        animation: fadeInUp $duration-normal ease forwards;
+        animation-delay: 400ms;
+
+        @include mobile {
+            font-size: 2.5rem;
+        }
+
+        .name {
+            @include text-gradient;
+            display: block; // On new line
+        }
+    }
+
+    p {
+        font-size: 1.25rem;
+        color: $text-muted;
+        margin-bottom: $spacing-lg;
+        line-height: 1.6;
+        opacity: 0;
+        animation: fadeInUp $duration-normal ease forwards;
+        animation-delay: 600ms;
+    }
+
+    .buttons {
+        display: flex;
+        gap: $spacing-md;
+        opacity: 0;
+        animation: fadeInUp $duration-normal ease forwards;
+        animation-delay: 800ms;
+
+        @include tablet {
+            justify-content: center;
+        }
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    .btn {
+        padding: $spacing-md $spacing-lg;
+        border-radius: $radius-full;
+        font-weight: 600;
+        transition: transform $duration-normal cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow $duration-normal cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+
+        &.primary {
+            background: $gradient-main;
+            color: white;
+            box-shadow: $shadow-glow;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 0 30px rgba($teal-deep, 0.6);
+            }
+        }
+
+        &.outline {
+            border: 2px solid rgba($teal-deep, 0.2);
+            color: $text-main;
+
+            &:hover {
+                border-color: $primary;
+                color: white;
+                background: $primary;
+            }
+        }
+    }
+}

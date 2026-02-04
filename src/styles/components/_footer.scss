@@ -1,0 +1,35 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+    padding: $spacing-xl 0;
+    background: var(--bg-main);
+    border-top: 1px solid var(--border-color);
+    margin-top: $spacing-xl;
+
+    .container {
+        @include flex-center;
+        flex-direction: column;
+        gap: $spacing-md;
+        text-align: center;
+    }
+
+    p {
+        color: $text-muted;
+        font-size: 0.9rem;
+    }
+
+    .socials {
+        display: flex;
+        gap: $spacing-md;
+
+        a {
+            color: $text-muted;
+            transition: color $duration-fast;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}

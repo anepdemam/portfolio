@@ -1,0 +1,10 @@
+@forward 'variables';
+@forward 'mixins';
+@use 'reset';
+@use 'global';
+@use 'components/header';
+@use 'components/footer';
+@use 'components/hero';
+@use 'components/projects';
+@use 'components/about';
+@use 'components/contact';
