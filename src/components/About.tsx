@@ -12,7 +12,7 @@ const About: React.FC = () => {
                 <h2>About <span>Me</span></h2>
                 <div className="content">
                     <p>
-                        Hello! My name is John, and I enjoy creating things that live on the internet.
+                        Hello! My name is Anif Ilham, and I enjoy creating things that live on the internet.
                         My interest in web development started back in 2018 when I decided to try editing
                         custom Tumblr themes — turns out hacking together HTML & CSS was delightful!
                     </p>

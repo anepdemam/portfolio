@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImg from '../assets/anep-image.jpeg';
 
 const Hero: React.FC = () => {
     return (
@@ -17,12 +18,12 @@ const Hero: React.FC = () => {
                     <div className="buttons">
                         <a href="#projects" className="btn primary">View My Work</a>
                         <a href="#contact" className="btn outline">Contact Me</a>
+                        <a href="/resume.pdf" className="btn outline" download>Resume</a>
                     </div>
                 </div>
                 <div className="image-area">
                     <div className="image-placeholder">
-                        {/* Add your image here */}
-                        <img src="/src/assets/anep-image.jpeg" alt="Anif Ilham" />
+                        <img src={profileImg} alt="Anif Ilham" />
                     </div>
                 </div>
             </div>

@@ -4,25 +4,18 @@ import ProjectCard from './ProjectCard';
 const Projects: React.FC = () => {
     const projects = [
         {
-            title: 'Analytics Dashboard',
-            description: 'A real-time analytics dashboard featuring data visualization, user management, and report generation.',
-            tags: ['React', 'TypeScript', 'D3.js', 'Firebase'],
-            link: '#',
-            github: '#',
+            title: 'Ramarama.co Online Store: Your Streetwear Choice!',
+            description: 'An online store for streetwear clothing, featuring a wide range of products for men and women.',
+            tags: ['Blade', 'Laravel', 'PHP', 'SQLite', 'SCSS', 'Vite'],
+            link: 'https://anepdemam.github.io/ramarama',
+            github: 'https://github.com/anepdemam/ramarama',
         },
         {
-            title: 'E-Commerce Platform',
-            description: 'Full-stack e-commerce solution with cart functionality, payment integration, and admin panel.',
-            tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-            link: '#',
-            github: '#',
-        },
-        {
-            title: 'Task Management App',
-            description: 'Collaborative task manager with drag-and-drop interface, real-time updates, and team workspaces.',
-            tags: ['Vue', 'Firebase', 'Tailwind'],
-            link: '#',
-            github: '#',
+            title: 'Paws Preferences',
+            description: 'A pet-centric application for managing pet preferences, health records, and daily routines.',
+            tags: ['React', 'JavaScript', 'CSS', 'Node.js'],
+            link: 'https://anepdemam.github.io/paws-preferences',
+            github: 'https://github.com/anepdemam/paws-preferences',
         }
     ];
 
