@@ -6,13 +6,13 @@ const Education: React.FC = () => {
             degree: 'Bachelor of Information Technology (Hons) in Software Engineering',
             institution: 'Universiti Kuala Lumpur (UniKL)',
             duration: 'Sep 2022 - Feb 2026',
-            description: 'Focusing on software development and web technologies. Currently maintaining a CGPA of 3.30.'
+            description: 'Focusing on software development and web technologies.'
         },
         {
             degree: 'Foundation In Science and Technology',
             institution: 'Universiti Kuala Lumpur (UniKL)',
             duration: '2021 - 2022',
-            description: 'Focused on core science and computing fundamentals. Graduated with a CGPA of 3.67.'
+            description: 'Focused on core science and computing fundamentals.'
         },
         {
             degree: 'Sijil Pelajaran Malaysia (SPM)',
