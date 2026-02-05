@@ -17,12 +17,33 @@ const Contact: React.FC = () => {
         e.preventDefault();
         setStatus('loading');
 
-        // Simulation of an API call
-        setTimeout(() => {
-            setStatus('success');
-            setFormData({ name: '', email: '', message: '' });
+        // Formspree ID provided by user
+        const FORMSPREE_ID = 'xlgwrgrg';
+        const formspreeUrl = `https://formspree.io/f/${FORMSPREE_ID}`;
+
+        try {
+            const response = await fetch(formspreeUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                setTimeout(() => setStatus('idle'), 5000);
+            }
+        } catch (error) {
+            console.error('Formspree Error:', error);
+            setStatus('error');
             setTimeout(() => setStatus('idle'), 5000);
-        }, 1500);
+        }
     };
 
     return (
