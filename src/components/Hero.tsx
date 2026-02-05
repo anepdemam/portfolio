@@ -12,8 +12,8 @@ const Hero: React.FC = () => {
                         <span className="name">Software Engineer Graduate</span>
                     </h1>
                     <p>
-                        I build accessible, pixel-perfect, and performant web experiences.
-                        Passionate about modern UI/UX and cutting-edge technologies.
+                        I’m a fresh graduate web developer with a strong interest in building inclusive, pixel-perfect digital experiences.
+                        With a passion for modern UI/UX and continuous learning, I aim to create interfaces that are intuitive, performant, and accessible to all users.
                     </p>
                     <div className="buttons">
                         <a href="#projects" className="btn primary">View My Work</a>

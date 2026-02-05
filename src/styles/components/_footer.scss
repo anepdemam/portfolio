@@ -25,10 +25,14 @@
 
         a {
             color: $text-muted;
-            transition: color $duration-fast;
+            transition: all $duration-fast;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             &:hover {
                 color: $primary;
+                transform: translateY(-2px);
             }
         }
     }

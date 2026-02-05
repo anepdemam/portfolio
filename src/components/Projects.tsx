@@ -1,5 +1,7 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
+import reramaImg from '../assets/rerama.png';
+import pawsImg from '../assets/paws.png';
 
 const Projects: React.FC = () => {
     const projects = [
@@ -9,6 +11,7 @@ const Projects: React.FC = () => {
             tags: ['Blade', 'Laravel', 'PHP', 'SQLite', 'SCSS', 'Vite'],
             link: 'https://anepdemam.github.io/ramarama',
             github: 'https://github.com/anepdemam/ramarama',
+            image: reramaImg
         },
         {
             title: 'Paws Preferences',
@@ -16,6 +19,7 @@ const Projects: React.FC = () => {
             tags: ['React', 'JavaScript', 'CSS', 'Node.js'],
             link: 'https://anepdemam.github.io/paws-preferences',
             github: 'https://github.com/anepdemam/paws-preferences',
+            image: pawsImg
         }
     ];
 

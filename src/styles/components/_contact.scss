@@ -4,42 +4,219 @@
 .contact {
     padding: $spacing-xl 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: rgba($teal-deep, 0.02); // Very subtle tint
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 40%;
+        height: 60%;
+        background: radial-gradient(circle, rgba($teal-light, 0.05) 0%, transparent 70%);
+        z-index: -1;
+    }
 
     .container {
-        max-width: 600px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 $spacing-lg;
     }
 
-    h2 {
-        font-size: 3rem;
-        font-family: $font-heading;
-        margin-bottom: $spacing-md;
-        @include text-gradient;
-    }
-
-    p {
-        color: $text-muted;
-        font-size: 1.2rem;
-        line-height: 1.6;
+    .contact-header {
         margin-bottom: $spacing-xl;
+
+        h2 {
+            font-size: 3rem;
+            font-family: $font-heading;
+            margin-bottom: $spacing-sm;
+            @include text-gradient;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 4px;
+                background: $gradient-main;
+                margin: $spacing-sm auto 0;
+                border-radius: $radius-full;
+            }
+        }
+
+        p {
+            color: $text-muted;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
     }
 
-    .btn {
-        display: inline-block;
-        padding: $spacing-md 3rem;
-        border: 2px solid $primary;
-        color: $primary;
-        background: transparent;
-        border-radius: $radius-md;
-        font-size: 1.1rem;
-        font-weight: 600;
-        box-shadow: $shadow-glow;
-        transition: transform $duration-normal cubic-bezier(0.4, 0, 0.2, 1),
-            background $duration-normal cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: transform;
+    .contact-box {
+        background: var(--bg-card);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border-color);
+        border-radius: $radius-lg;
+        padding: $spacing-xl;
+        box-shadow: $shadow-card;
+        text-align: left;
+        transition: transform $duration-normal ease, box-shadow $duration-normal ease;
 
         &:hover {
-            background: rgba($teal-deep, 0.1);
             transform: translateY(-5px);
+            box-shadow: $shadow-glow;
+        }
+    }
+
+    .contact-form {
+        display: grid;
+        gap: $spacing-lg;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-sm;
+
+            label {
+                font-weight: 600;
+                color: $text-main;
+                font-size: 0.95rem;
+                letter-spacing: 0.02em;
+            }
+
+            input,
+            textarea {
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-color);
+                border-radius: $radius-md;
+                color: $text-main;
+                font-family: inherit;
+                font-size: 1rem;
+                transition: all $duration-fast ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary;
+                    background: rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 0 0 4px rgba($teal-deep, 0.1);
+                }
+
+                &::placeholder {
+                    color: $text-muted;
+                    opacity: 0.6;
+                }
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        }
+
+        .btn {
+            @include flex-center;
+            padding: 1rem $spacing-xl;
+            background: $gradient-main;
+            color: $white;
+            border: none;
+            border-radius: $radius-md;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all $duration-normal ease;
+            position: relative;
+            overflow: hidden;
+
+            &:hover:not(:disabled) {
+                transform: translateY(-2px);
+                box-shadow: $shadow-glow;
+                opacity: 0.95;
+            }
+
+            &:active:not(:disabled) {
+                transform: translateY(0);
+            }
+
+            &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+            }
+
+            &.loading {
+                color: transparent;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid $white;
+                    border-top-color: transparent;
+                    border-radius: 50%;
+                    animation: spin 0.8s linear infinite;
+                }
+            }
+        }
+
+        .status-message {
+            text-align: center;
+            padding: $spacing-md;
+            border-radius: $radius-sm;
+            font-weight: 500;
+            margin-top: $spacing-md;
+            animation: fadeIn 0.3s ease;
+
+            &.success {
+                background: rgba(98, 176, 165, 0.1);
+                color: $teal-mid;
+                border: 1px solid rgba(98, 176, 165, 0.2);
+            }
+
+            &.error {
+                background: rgba(239, 68, 68, 0.1);
+                color: #ef4444;
+                border: 1px solid rgba(239, 68, 68, 0.2);
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[data-theme='dark'] {
+    .contact {
+        .contact-box {
+            background: rgba($teal-deep, 0.1);
+        }
+
+        .contact-form {
+
+            input,
+            textarea {
+                background: rgba(255, 255, 255, 0.02);
+
+                &:focus {
+                    background: rgba(255, 255, 255, 0.05);
+                }
+            }
         }
     }
 }

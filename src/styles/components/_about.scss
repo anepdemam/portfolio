@@ -3,64 +3,165 @@
 
 .about {
     padding: $spacing-xl 0;
+    position: relative; // Needed for the divider
 
-    .container {
-        max-width: 800px;
+    // Soft Bottom Divider
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--secondary), transparent);
+        opacity: 0.3;
+        box-shadow: 0 0 20px var(--secondary);
+        z-index: 1;
     }
 
-    h2 {
-        font-size: 2.5rem;
-        font-family: $font-heading;
-        margin-bottom: $spacing-lg;
-        color: $text-main;
+    .about-bio {
+        padding: 0 $spacing-lg;
+        margin-bottom: $spacing-xl;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
 
-        span {
-            color: $primary;
-        }
-    }
-
-    .content {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        box-shadow: $shadow-sm;
-        border-radius: $radius-lg;
-        padding: $spacing-lg;
-
-        p {
-            color: var(--text-main);
-            line-height: 1.8;
+        h2 {
+            font-size: 2.5rem;
+            font-family: $font-heading;
             margin-bottom: $spacing-lg;
-            font-size: 1.1rem;
-        }
-    }
+            @include text-gradient;
+            text-align: center;
 
-    .skills {
-        h3 {
-            font-size: 1.2rem;
-            margin-bottom: $spacing-md;
-            color: $text-main;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: $spacing-md;
-        }
-
-        .skill-item {
-            padding: $spacing-sm $spacing-md;
-            background: rgba($teal-light, 0.1);
-            color: $teal-mid;
-            border-radius: $radius-md;
-            font-weight: 500;
-            transition: background $duration-fast cubic-bezier(0.4, 0, 0.2, 1),
-                transform $duration-fast cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform;
-
-            &:hover {
-                background: rgba($teal-light, 0.2);
-                transform: translateY(-2px);
+            &::after {
+                content: '';
+                display: block;
+                width: 50px;
+                height: 4px;
+                background: $gradient-main;
+                margin: $spacing-sm auto 0;
+                border-radius: $radius-full;
             }
         }
+
+        .content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            box-shadow: $shadow-sm;
+            border-radius: $radius-lg;
+            padding: $spacing-lg;
+            backdrop-filter: blur(10px);
+
+            p {
+                color: var(--text-main);
+                line-height: 1.8;
+                margin-bottom: $spacing-lg;
+                font-size: 1.1rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .tech-marquee-section {
+        .tech-title {
+            font-size: 1.2rem;
+            margin-bottom: $spacing-lg;
+            color: $text-main;
+            text-align: center;
+            font-family: $font-heading;
+        }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            padding: $spacing-lg 0;
+            background: rgba($teal-light, 0.03); // More subtle
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+
+            // Side Fades
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100px;
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            &::before {
+                left: 0;
+                background: linear-gradient(to right, var(--bg-main), transparent);
+            }
+
+            &::after {
+                right: 0;
+                background: linear-gradient(to left, var(--bg-main), transparent);
+            }
+
+            .marquee-content {
+                display: flex;
+                gap: $spacing-xl; // Increased gap
+                width: max-content;
+                animation: marquee 40s linear infinite; // Slightly slower for better readability
+
+                &:hover {
+                    animation-play-state: paused;
+                }
+            }
+
+            .skill-item {
+                padding: $spacing-sm;
+                background: transparent;
+                color: $text-muted;
+                border: 1px solid transparent;
+                font-weight: 600;
+                white-space: nowrap;
+                transition: all $duration-normal ease;
+                display: flex;
+                align-items: center;
+                gap: $spacing-md;
+                filter: grayscale(100%);
+                opacity: 0.5;
+
+                .skill-icon {
+                    display: flex;
+                    font-size: 2.2rem; // Slightly larger for better presence without box
+                }
+
+                .skill-name {
+                    font-size: 1.25rem;
+                }
+
+                &:hover {
+                    background: transparent;
+                    color: var(--brand-color);
+                    transform: translateY(-8px) scale(1.05);
+                    filter: grayscale(0%);
+                    opacity: 1;
+
+                    .skill-icon {
+                        color: var(--brand-color);
+                        filter: drop-shadow(0 0 15px var(--brand-color)); // Vibrant glow
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }
