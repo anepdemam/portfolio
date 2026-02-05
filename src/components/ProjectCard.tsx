@@ -5,12 +5,11 @@ interface ProjectProps {
     title: string;
     description: string;
     tags: string[];
-    link: string;
     github: string;
     image?: string;
 }
 
-const ProjectCard: React.FC<ProjectProps> = ({ title, description, tags, link, github, image }) => {
+const ProjectCard: React.FC<ProjectProps> = ({ title, description, tags, github, image }) => {
     return (
         <article className="project-card">
             <div className="image-wrapper">
@@ -28,7 +27,6 @@ const ProjectCard: React.FC<ProjectProps> = ({ title, description, tags, link, g
                     ))}
                 </div>
                 <div className="links">
-                    <a href={link} target="_blank" rel="noopener noreferrer">Live Demo</a>
                     <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>

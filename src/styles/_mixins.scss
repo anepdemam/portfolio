@@ -1,5 +1,45 @@
 @use 'variables' as *;
 
+@mixin btn($type: 'primary') {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-md $spacing-lg;
+    border-radius: $radius-full;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all $duration-normal cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    cursor: pointer;
+    text-decoration: none;
+
+    @if $type =='primary' {
+        background: $gradient-main;
+        color: white;
+        box-shadow: $shadow-glow;
+        border: none;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba($teal-deep, 0.4);
+            color: white;
+        }
+    }
+
+    @else if $type =='outline' {
+        border: 2px solid rgba($teal-deep, 0.2);
+        color: $text-main;
+        background: transparent;
+
+        &:hover {
+            border-color: $primary;
+            color: white;
+            background: $primary;
+            transform: translateY(-2px);
+        }
+    }
+}
+
 @mixin mobile {
     @media (max-width: 768px) {
         @content;
@@ -37,4 +77,25 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@mixin section-divider($color: var(--secondary)) {
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        right: 5%;
+        height: 1px;
+        background: linear-gradient(to right,
+                transparent 0%,
+                rgba($color, 0.4) 30%,
+                rgba($color, 0.4) 70%,
+                transparent 100%);
+        filter: blur(0.5px);
+        box-shadow: 0 0 20px $color;
+        opacity: 0.3;
+        z-index: 1;
+        pointer-events: none;
+    }
 }

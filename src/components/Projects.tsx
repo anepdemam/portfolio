@@ -6,18 +6,16 @@ import pawsImg from '../assets/paws.png';
 const Projects: React.FC = () => {
     const projects = [
         {
-            title: 'Ramarama.co Online Store: Your Streetwear Choice!',
+            title: 'Ramarama.co Online Store',
             description: 'An online store for streetwear clothing, featuring a wide range of products for men and women.',
             tags: ['Blade', 'Laravel', 'PHP', 'SQLite', 'SCSS', 'Vite'],
-            link: 'https://anepdemam.github.io/ramarama',
             github: 'https://github.com/anepdemam/ramarama',
             image: reramaImg
         },
         {
             title: 'Paws Preferences',
-            description: 'A pet-centric application for managing pet preferences, health records, and daily routines.',
+            description: 'A mini project to learn React',
             tags: ['React', 'JavaScript', 'CSS', 'Node.js'],
-            link: 'https://anepdemam.github.io/paws-preferences',
             github: 'https://github.com/anepdemam/paws-preferences',
             image: pawsImg
         }

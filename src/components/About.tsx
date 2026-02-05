@@ -25,10 +25,10 @@ const About: React.FC = () => {
                 <h2><span>About</span> Me</h2>
                 <div className="content">
                     <p>
-                        Hello! I’m Anif Ilham, a fresh graduate with a strong interest in software and web development that started from a young age.
+                        Hello! I’m Anif Ilham, a Software Engineering student at Universiti Kuala Lumpur (UniKL) with a passion for web development that started from a young age.
                     </p>
                     <p>
-                        I’ve been curious about software and technology since I was a kid, often exploring how applications and websites work. Over time, this curiosity grew into a passion for building things myself, especially during my studies where I was introduced to web technologies such as HTML, CSS, and JavaScript.
+                        Currently pursuing my Bachelor's degree (Sep 2022 - Feb 2026), I have developed a strong foundation in science and technology. My curiosity about software began in childhood, exploring the inner workings of applications and websites.
                     </p>
                     <p>
                         As a fresh graduate, I’ve developed my skills through academic projects, internships, and self-learning, focusing on creating responsive, user-friendly web applications. I’m particularly interested in building accessible and inclusive digital experiences that prioritize usability and performance.

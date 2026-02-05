@@ -5,19 +5,7 @@
     padding: $spacing-xl 0;
     position: relative; // Needed for the divider
 
-    // Soft Bottom Divider
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(to right, transparent, var(--secondary), transparent);
-        opacity: 0.3;
-        box-shadow: 0 0 20px var(--secondary);
-        z-index: 1;
-    }
+    @include section-divider(var(--secondary));
 
     .about-bio {
         padding: 0 $spacing-lg;
@@ -32,16 +20,6 @@
             margin-bottom: $spacing-lg;
             @include text-gradient;
             text-align: center;
-
-            &::after {
-                content: '';
-                display: block;
-                width: 50px;
-                height: 4px;
-                background: $gradient-main;
-                margin: $spacing-sm auto 0;
-                border-radius: $radius-full;
-            }
         }
 
         .content {

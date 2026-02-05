@@ -33,16 +33,6 @@
             font-family: $font-heading;
             margin-bottom: $spacing-sm;
             @include text-gradient;
-
-            &::after {
-                content: '';
-                display: block;
-                width: 60px;
-                height: 4px;
-                background: $gradient-main;
-                margin: $spacing-sm auto 0;
-                border-radius: $radius-full;
-            }
         }
 
         p {

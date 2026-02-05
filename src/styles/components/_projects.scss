@@ -6,19 +6,7 @@
     position: relative;
     background: rgba($teal-light, 0.03); // Subtle background tint
 
-    // Soft Bottom Divider
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(to right, transparent, var(--accent), transparent);
-        opacity: 0.3;
-        box-shadow: 0 0 20px var(--accent);
-        z-index: 1;
-    }
+    @include section-divider(var(--accent));
 
     .section-title {
         text-align: center;
@@ -150,14 +138,9 @@
             gap: $spacing-md;
 
             a {
+                @include btn('primary');
+                padding: $spacing-sm $spacing-lg; // Slightly smaller for cards
                 font-size: 0.9rem;
-                font-weight: 600;
-                color: $text-main;
-
-                &:hover {
-                    color: $primary;
-                    text-decoration: underline;
-                }
             }
         }
     }
